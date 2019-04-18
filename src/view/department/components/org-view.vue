@@ -5,10 +5,7 @@
     @mousedown="mousedownView"
     @contextmenu="handleDocumentContextmenu"
   >
-    <div
-      class="org-tree-wrapper"
-      :style="orgTreeStyle"
-    >
+    <div class="org-tree-wrapper" :style="orgTreeStyle">
       <v-org-tree
         v-if="data"
         :data="data"

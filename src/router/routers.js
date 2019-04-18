@@ -79,6 +79,25 @@ export default [
     ]
   },
   {
+    path: '/department',
+    name: 'department',
+    component: Main,
+    meta: {
+      title: '部门管理',
+      hideInMenu: false
+    },
+    children: [
+      {
+        path: 'dep',
+        name: 'dep',
+        meta: {
+          title: '部门管理'
+        },
+        component: () => import('@/view/department/department.vue')
+      }
+    ]
+  },
+  {
     path: '/message',
     name: 'message',
     component: Main,
