@@ -30,7 +30,7 @@
   </Card>
 </template>
 <script>
-import { listDep, deleteDep } from '@/api/dep'
+import { listDep, deleteDep, addDep, updateDep } from '@/api/dep'
 import { on, off } from '@/libs/tools'
 import './department.less'
 const menuList = [
@@ -160,6 +160,46 @@ export default {
         },
         onOk: () => {
           console.log({ key, edit: this.edit })
+          switch (key) {
+            case 'new':
+              addDep({ name: this.edit.name, parentDep: this.edit.parentDep }).then(res => {
+                const { ok, msg } = res.data
+                if (ok) {
+                  this.$Message.success('操作成功')
+                } else {
+                  this.$Message.error(msg)
+                }
+                this.$router.replace({
+                  path: '/department/dep',
+                  query: {
+                    t: Date.now()
+                  }
+                })
+              }).catch(err => {
+                this.$Message.error(err)
+              })
+              break
+            case 'edit':
+              updateDep({ id: this.edit.id, name: this.edit.name, parentDep: this.edit.parentDep }).then(res => {
+                const { ok, msg } = res.data
+                if (ok) {
+                  this.$Message.success('操作成功')
+                } else {
+                  this.$Message.error(msg)
+                }
+                this.$router.replace({
+                  path: '/department/dep',
+                  query: {
+                    t: Date.now()
+                  }
+                })
+              }).catch(err => {
+                this.$Message.error(err)
+              })
+              break
+            default:
+              break
+          }
         }
       })
     },

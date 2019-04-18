@@ -2,7 +2,7 @@ import Mock from 'mockjs'
 import { login, logout, getUserInfo } from './login'
 import { getTableData, getDragList, uploadImage, getOrgData, getTreeSelectData } from './data'
 import { getMessageInit, getContentByMsgId, hasRead, removeReaded, restoreTrash, messageCount } from './user'
-import { listDep, deleteDep } from './dep'
+import { listDep, deleteDep, addDep, updateDep } from './dep'
 // 配置Ajax请求延时，可用来测试网络延迟大时项目中一些效果
 Mock.setup({
   // timeout: 1000
@@ -26,5 +26,7 @@ Mock.mock(/\/get_org_data/, getOrgData)
 Mock.mock(/\/get_tree_select_data/, getTreeSelectData)
 Mock.mock(/\/Dep\/list/, listDep)
 Mock.mock(/\/Dep\/del/, deleteDep)
+Mock.mock(/\/Dep\/update/, updateDep)
+Mock.mock(/\/Dep\/add/, addDep)
 
 export default Mock

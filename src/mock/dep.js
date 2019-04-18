@@ -41,3 +41,17 @@ export const deleteDep = req => {
     msg: ''
   }
 }
+
+export const addDep = req => {
+  return {
+    ok: true,
+    msg: ''
+  }
+}
+
+export const updateDep = req => {
+  return {
+    ok: true,
+    msg: ''
+  }
+}
