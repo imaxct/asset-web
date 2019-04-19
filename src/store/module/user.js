@@ -94,9 +94,13 @@ export default {
           password
         }).then(res => {
           const data = res.data
-          commit('setInfo', { ...data.obj })
-          setToken({ ...data.obj })
-          resolve()
+          if (data.ok) {
+            commit('setInfo', { ...data.obj })
+            setToken({ ...data.obj })
+            resolve()
+          } else {
+            throw new Error(data.msg)
+          }
         }).catch(err => {
           reject(err)
         })
@@ -106,7 +110,7 @@ export default {
     handleLogOut ({ state, commit }) {
       return new Promise((resolve, reject) => {
         commit('setInfo', null)
-        setToken(null)
+        setToken({})
         resolve()
       })
     },

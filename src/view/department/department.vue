@@ -126,12 +126,7 @@ export default {
               } else {
                 this.$Message.error(msg)
               }
-              this.$router.replace({
-                path: '/department/dep',
-                query: {
-                  t: Date.now()
-                }
-              })
+              this.loadData()
             })
           }
         })
@@ -169,12 +164,7 @@ export default {
                 } else {
                   this.$Message.error(msg)
                 }
-                this.$router.replace({
-                  path: '/department/dep',
-                  query: {
-                    t: Date.now()
-                  }
-                })
+                this.loadData()
               }).catch(err => {
                 this.$Message.error(err)
               })
@@ -187,12 +177,7 @@ export default {
                 } else {
                   this.$Message.error(msg)
                 }
-                this.$router.replace({
-                  path: '/department/dep',
-                  query: {
-                    t: Date.now()
-                  }
-                })
+                this.loadData()
               }).catch(err => {
                 this.$Message.error(err)
               })

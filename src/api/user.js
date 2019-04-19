@@ -2,8 +2,33 @@ import axios from '@/libs/api.request'
 
 export const login = ({ username, password }) => {
   return axios.request({
-    url: 'login',
+    url: 'User/login',
     data: { username, password },
+    method: 'post'
+  })
+}
+
+export const listUser = ({ pageNo, size }) => {
+  return axios.request({
+    url: 'User/list',
+    data: { pageNo, size },
+    method: 'post'
+  })
+}
+
+export const saveUser = ({ id, name, depId, roleId }) => {
+  console.log({ id, name, depId, roleId })
+  return axios.request({
+    url: 'User/save',
+    data: { id, name, depId, roleId },
+    method: 'post'
+  })
+}
+
+export const newUser = ({ name, depId, roleId, password, username }) => {
+  return axios.request({
+    url: 'User/new',
+    data: { name, depId, roleId, password, username },
     method: 'post'
   })
 }

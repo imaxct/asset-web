@@ -8,7 +8,7 @@ export const getToken = () => {
   const rawJson = localStorage.getItem(TOKEN_KEY)
   const token = JSON.parse(rawJson)
   const gmtCreate = (token && token['gmtCreate']) || 0xffffffff
-  const expireSecond = (token && token['expire']) || 0
+  const expireSecond = (token && token['expireSecond']) || 0
   const nowTime = new Date().getTime() / 1000
   if (expireSecond - (nowTime - gmtCreate) <= 0) {
     return null

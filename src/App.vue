@@ -7,6 +7,7 @@
 <script>
 import { mapActions } from 'vuex'
 import { getToken } from '@/libs/util'
+import config from '@/config'
 export default {
   name: 'App',
   methods: {
@@ -15,7 +16,11 @@ export default {
   beforeMount () {
     const token = getToken()
     if (token && token['token']) {
-      this.handleToken(token)
+      this.handleToken(token).then(res => {
+        this.$router.push({
+          name: config.homeName
+        })
+      })
     }
   }
 }

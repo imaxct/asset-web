@@ -82,18 +82,47 @@ export default [
     path: '/department',
     name: 'department',
     component: Main,
-    meta: {
-      title: '部门管理',
-      hideInMenu: false
-    },
     children: [
       {
         path: 'dep',
         name: 'dep',
         meta: {
-          title: '部门管理'
+          title: '组织维护',
+          icon: 'ios-people'
         },
         component: () => import('@/view/department/department.vue')
+      }
+    ]
+  },
+  {
+    path: '/role',
+    name: 'role',
+    component: Main,
+    children: [
+      {
+        path: 'roleManage',
+        name: 'roleManage',
+        meta: {
+          title: '角色维护',
+          icon: 'ios-people'
+        },
+        component: () => import('@/view/role/role.vue')
+      }
+    ]
+  },
+  {
+    path: '/user',
+    name: 'user',
+    component: Main,
+    children: [
+      {
+        path: 'userManage',
+        name: 'userManage',
+        meta: {
+          title: '用户列表',
+          icon: 'md-person'
+        },
+        component: () => import('@/view/user/user.vue')
       }
     ]
   },
