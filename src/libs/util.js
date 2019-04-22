@@ -402,3 +402,22 @@ export const setTitle = (routeItem, vm) => {
   const resTitle = pageTitle ? `${title} - ${pageTitle}` : title
   window.document.title = resTitle
 }
+
+export const PropertyStatus = {
+  PENDING_IMPORT: '等待入库',
+  IDLE: '空闲',
+  OCCUPIED: '使用中',
+  PROCESSING: '流程处理中',
+  DAMAGED: '损坏',
+  LOST: '丢失',
+  RUINED: '报废',
+  OUT_OF_WORK: '故障'
+}
+
+export const TicketStatus = {
+  SUBMIT: '已提交',
+  PROCESSING: '审批中',
+  PASS: '审批通过',
+  DENY: '审批未通过',
+  DONE: '工单关闭'
+}

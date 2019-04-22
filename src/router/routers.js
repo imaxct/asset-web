@@ -127,6 +127,25 @@ export default [
     ]
   },
   {
+    path: '/asset',
+    name: 'asset',
+    component: Main,
+    meta: {
+      title: '资产管理'
+    },
+    children: [
+      {
+        path: 'assetList',
+        name: 'assetList',
+        meta: {
+          title: '资产列表',
+          icon: 'md-cube'
+        },
+        component: () => import('@/view/asset/asset-list.vue')
+      }
+    ]
+  },
+  {
     path: '/message',
     name: 'message',
     component: Main,

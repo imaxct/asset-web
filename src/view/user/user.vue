@@ -25,6 +25,7 @@ import { listUser, saveUser, newUser } from '@/api/user'
 import { listDep } from '@/api/dep'
 import { listRole } from '@/api/role'
 import Tables from '_c/tables'
+import config from '@/config'
 export default {
   components: {
     Tables
@@ -32,7 +33,7 @@ export default {
   data () {
     return {
       list: [],
-      size: 1,
+      size: config.pageSize,
       edit: {
         username: '',
         name: '',
@@ -59,7 +60,7 @@ export default {
               <Select
                 transfer={true}
                 v-model={this.list[params.index].depId}
-                on-on-change={e => this.onChange({ id: this.list[params.index].id, roleId: this.list[params.index].depId })}>
+                on-on-change={e => this.onChange({ id: this.list[params.index].id, depId: this.list[params.index].depId })}>
                 {this.depList.map(it => {
                   return (
                     <Option value={it.id} key={it.id}>{it.label}</Option>
@@ -175,6 +176,21 @@ export default {
       this.loadPage(this.number, this.size)
     },
     loadPage (pageNo, size) {
+      listUser({ pageNo, size }).then(res => {
+        const { data } = res
+        if (data.ok) {
+          const { content, totalPages, totalElements, size, number } = data.obj
+          this.list = content
+          this.size = size
+          this.totalPages = totalPages
+          this.totalElements = totalElements
+          this.number = number
+        } else {
+          this.$Message.error(data.msg)
+        }
+      })
+    },
+    loadData () {
       listDep().then(res => {
         if (res.data.ok) {
           this.depList = res.data.obj.list
@@ -183,26 +199,11 @@ export default {
           if (res.data.ok) {
             this.roleList = res.data.obj
           }
-          listUser({ pageNo, size }).then(res => {
-            const { data } = res
-            if (data.ok) {
-              const { content, totalPages, totalElements, size, number } = data.obj
-              this.list = content
-              this.size = size
-              this.totalPages = totalPages
-              this.totalElements = totalElements
-              this.number = number
-            } else {
-              this.$Message.error(data.msg)
-            }
-          })
+          this.loadPage(this.number, this.size)
         })
       }).catch(err => {
         this.$Message.error(err)
       })
-    },
-    loadData () {
-      this.loadPage(this.number, this.size)
     }
   },
   mounted () {

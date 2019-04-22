@@ -34,5 +34,6 @@ export default {
     }
   },
 
-  TOKEN_NAME: 'Random-timestamp'
+  TOKEN_NAME: 'Random-timestamp',
+  pageSize: 20
 }

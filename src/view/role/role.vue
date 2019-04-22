@@ -124,6 +124,7 @@ export default {
     loadData () {
       listRole().then(res => {
         const { data } = res
+        this.list = []
         if (data.ok) {
           data.obj.map(it => {
             this.list.push({ ...it, id: '' + it.id })

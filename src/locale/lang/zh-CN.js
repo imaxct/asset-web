@@ -48,5 +48,7 @@ export default {
   role: '角色维护',
   roleManage: '角色维护',
   user: '用户列表',
-  userManage: '用户列表'
+  userManage: '用户列表',
+  asset: '资产管理',
+  assetList: '资产列表'
 }
