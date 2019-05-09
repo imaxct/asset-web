@@ -50,5 +50,9 @@ export default {
   user: '用户列表',
   userManage: '用户列表',
   asset: '资产管理',
-  assetList: '资产列表'
+  assetList: '资产列表',
+  msg: '消息管理',
+  transfer: '资产流转历史',
+  pandian: '盘点统计',
+  handle: '处理统计'
 }
