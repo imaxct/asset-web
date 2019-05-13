@@ -5,6 +5,7 @@
       :columns="columns"
       v-model="list"
       @on-save-edit="saveEdit"
+      ref="table"
     >
     </tables>
     <Page
@@ -19,6 +20,13 @@
       type="primary"
       @click="showAddModal"
     >添加资产</Button>
+    <Button
+      style="margin-top: 10px; margin-left: 10px;"
+      type="primary"
+      @click="exportData()"
+    >
+      <Icon type="ios-download-outline"></Icon> 导出数据
+    </Button>
   </div>
 </template>
 <script>
@@ -93,6 +101,11 @@ export default {
     }
   },
   methods: {
+    exportData () {
+      this.$refs.table.exportCsv({
+        filename: '资产列表'
+      })
+    },
     showAddModal () {
       this.$Modal.confirm({
         render: (h) => {

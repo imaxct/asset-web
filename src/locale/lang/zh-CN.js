@@ -54,5 +54,7 @@ export default {
   msg: '消息管理',
   transfer: '资产流转历史',
   pandian: '盘点统计',
-  handle: '处理统计'
+  handle: '处理统计',
+  msg_page: '消息管理',
+  his: '历史记录'
 }
