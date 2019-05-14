@@ -99,6 +99,25 @@ export default [
     ]
   },
   {
+    path: '/process',
+    name: 'process',
+    component: Main,
+    meta: {
+      title: '业务流程管理'
+    },
+    children: [
+      {
+        path: 'process_manage',
+        name: 'process_manage',
+        meta: {
+          title: '业务流程管理',
+          icon: 'md-book'
+        },
+        component: () => import('@/view/process/process.vue')
+      }
+    ]
+  },
+  {
     path: '/asset',
     name: 'asset',
     component: Main,
@@ -170,18 +189,7 @@ export default [
       params: {
         id: 3
       }
-    }// ,
-    // children: [
-    //   {
-    //     meta: {
-    //       title: '资产流转历史',
-    //       icon: 'md-clipboard'
-    //     },
-
-    //     path: 'his/3',
-    //     component: () => import('@/view/ticket/ticket.vue')
-    //   }
-    // ]
+    }
   },
   {
     path: '/ticket',
@@ -197,18 +205,7 @@ export default [
       params: {
         id: 4
       }
-    } // ,
-    // children: [
-    //   {
-    //     meta: {
-    //       title: '盘点统计',
-    //       icon: 'md-checkbox'
-    //     },
-    //     path: 'his/4',
-
-    //     component: () => import('@/view/ticket/ticket.vue')
-    //   }
-    // ]
+    }
   },
   {
     path: '/ticket',
@@ -224,18 +221,7 @@ export default [
       params: {
         id: 5
       }
-    }// ,
-    // children: [
-    //   {
-    //     meta: {
-    //       title: '处理统计',
-    //       icon: 'md-copy'
-    //     },
-    //     path: 'his/5',
-
-    //     component: () => import('@/view/ticket/ticket.vue')
-    //   }
-    // ]
+    }
   },
   {
     path: '/msg',

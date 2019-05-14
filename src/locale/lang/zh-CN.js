@@ -56,5 +56,7 @@ export default {
   pandian: '盘点统计',
   handle: '处理统计',
   msg_page: '消息管理',
-  his: '历史记录'
+  his: '历史记录',
+  process: '业务流程',
+  process_manage: '业务流程管理'
 }

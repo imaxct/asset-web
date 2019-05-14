@@ -21,3 +21,11 @@ export const listProcess = () => {
     method: 'get'
   })
 }
+
+export const updateProcess = (data) => {
+  return axios.request({
+    url: 'Process/update',
+    method: 'post',
+    data
+  })
+}
